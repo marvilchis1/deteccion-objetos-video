@@ -74,7 +74,7 @@ if __name__ == "__main__":
     colors = np.random.randint(0, 255, size=(len(classes), 3), dtype="uint8")
     a=[]
     
-    filter_list = [1, 13, 15, 16, 24, 25, 26, 28, 32, 34, 35, 36, 39, 45, 56, 57, 58, 59, 60, 61, 65, 69, 71, 73, 77]
+    filter_list = [1, 13, 15, 16, 24, 25, 26, 28, 32, 34, 35, 36, 39, 45, 56, 57, 58, 59, 60, 61, 65, 69, 71, 72, 73, 77]
     filter_list = set(filter_list)
     name = []
     dx1 = []
@@ -120,9 +120,11 @@ if __name__ == "__main__":
                         dx2.append(float(x2))
                         dy2.append(float(y2))
                         number_frame.append(float(num_frame))
-                        frame = cv2.rectangle(frame, (int(x1), int(y1 + box_h)), (int(x2), int(y1)), (155, 255, 0), 3)
-                        cv2.putText(frame, classes[int(cls_pred)], (int(x1), int(y1)), cv2.FONT_HERSHEY_SIMPLEX, 1, color, 5)# Nombre de la clase detectada
-                        cv2.putText(frame, str("%.2f" % float(conf)), (int(x2), int(y2 - box_h)), cv2.FONT_HERSHEY_SIMPLEX, 0.5,color, 5) # Certeza de prediccion de la clase
+                        
+                        
+                        frame = cv2.rectangle(frame, (x1, y1 + box_h), (x2, y1), color, 5)
+                        cv2.putText(frame, classes[int(cls_pred)], (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, color, 5)# Nombre de la clase detectada
+                        cv2.putText(frame, str("%.2f" % float(conf)), (x2, y2 - box_h), cv2.FONT_HERSHEY_SIMPLEX, 0.5,color, 5) # Certeza de prediccion de la clase
         #
         #Convertimos de vuelta a BGR para que cv2 pueda desplegarlo en los colores correctos
         
