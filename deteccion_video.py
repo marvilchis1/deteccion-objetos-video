@@ -74,7 +74,7 @@ if __name__ == "__main__":
     colors = np.random.randint(0, 255, size=(len(classes), 3), dtype="uint8")
     a=[]
     
-    filter_list = [1, 13, 15, 16, 24, 25, 26, 28, 32, 34, 35, 36, 39, 45, 56, 57, 58, 59, 60, 61, 65, 69, 71, 73, 77]
+    filter_list = [1, 13, 24, 26, 28, 32, 34, 35, 36, 56, 57, 58, 60, 61, 65, 71]
     filter_list = set(filter_list)
     name = []
     dx1 = []
